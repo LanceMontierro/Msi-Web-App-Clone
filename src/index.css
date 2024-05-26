@@ -1,0 +1,818 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+    "Microsoft JhengHei", "Meiryo UI", Helvetica, Arial, sans-serif;
+}
+
+@layer components {
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  .links {
+    text-decoration: none;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    padding: 30px 0;
+    font-size: 17px;
+    transition: 0.3s ease;
+  }
+
+  .links-space ul li a:nth-child(n + 1) {
+    margin-left: 20px;
+  }
+  .responsive-menu {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    z-index: 100;
+    height: 100vh;
+    transition: 0.3s ease-in-out;
+  }
+
+  .slide {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    display: block;
+  }
+  .removeSlide {
+    display: none;
+  }
+  @keyframes fade {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .button-slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background-color: #cccccc;
+    cursor: pointer;
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+  .card_body {
+    text-align: center;
+    padding: 15px 15px 24px;
+    background-color: #fff;
+    transition: background-color 0.5s;
+    color: #333;
+  }
+  .card_body:hover {
+    background-color: #ecececec;
+  }
+  .context {
+    margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    word-break: break-word;
+  }
+  .odmWrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+    justify-content: center;
+    position: relative;
+  }
+  .input {
+    width: 50%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #0d0c22;
+    color: #0d0c22;
+    transition: 0.3s ease;
+  }
+  .dots {
+    position: absolute;
+    bottom: 100px;
+    color: #fff;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .dots-li {
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    margin: 20px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    background-color: #515151;
+  }
+  .dot-ul {
+    position: absolute;
+    bottom: 20px;
+    color: #fff;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .dot-laptop {
+    list-style: none;
+    width: 40px;
+    height: 2px;
+    margin: 0 4px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    background-color: #515151;
+  }
+  .dot-laptop-active {
+    background-color: #ff0101;
+  }
+  .shortcut-field:before,
+  .shortcut-field:after {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 12px;
+    height: 2px;
+    background: #000;
+    border-radius: 5px;
+    transition: transform 0.3s;
+  }
+  .shortcut-field {
+    font-weight: bold;
+    position: relative;
+    padding: 20px 0;
+  }
+  .shortcut-field:before {
+    transform: translateY(10px) rotate(0deg);
+  }
+  .shortcut-field:after {
+    transform: translateY(10px) rotate(90deg);
+  }
+  .login-li {
+    padding-bottom: 5px;
+  }
+  .login-li:before {
+    content: "";
+    display: inline-block;
+    background: url(./assets/icon-right.svg) center center no-repeat;
+    background-size: cover;
+    width: 14px;
+    height: 14px;
+    margin-top: 5px;
+    margin-right: 3px;
+  }
+  .login-link {
+    position: relative;
+    padding-top: 5px;
+  }
+  .login-link:after {
+    content: "";
+    display: inline-block;
+    background: url(./assets/msi-arrow-right.svg) center center no-repeat;
+    background-size: cover;
+    width: 14px;
+    height: 14px;
+  }
+  .product-col {
+    box-shadow: 3px 0 0px -1px #eee;
+    margin-left: 28px;
+  }
+
+  .tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+  }
+  .tag:before {
+    content: "";
+    display: block;
+    border: solid;
+    border-width: 65px;
+    border-color: red transparent transparent transparent;
+    border-bottom: 0;
+    border-right: 0;
+    position: relative;
+  }
+  .clip {
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+  }
+
+  .clip:nth-child(n + 2) {
+    margin-top: 40px;
+    margin-left: -5%;
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 15% 100%);
+  }
+  .msiServices {
+    padding: 0 3%;
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+  .support-link {
+    width: calc(100% / 3);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .support-link-responsive {
+    padding: 3% 0;
+    width: 85%;
+    text-align: center;
+  }
+  .point {
+    margin-right: 10px;
+    padding: 6px;
+    position: relative;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+  input:checked ~ .point::before,
+  .point {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+  }
+  .scrollbar {
+    scrollbar-width: none;
+  }
+  .breadcrumbs {
+    color: #777;
+    transition: 0.3s ease-in-out;
+  }
+  .breadcrumbs:hover {
+    color: #d1cdcd;
+  }
+  .breadcrumbs:nth-child(3) {
+    color: white;
+  }
+  .breadcrumbs:nth-child(-n + 2)::after {
+    display: inline-block;
+    content: "/";
+    padding: 0 15px;
+  }
+  .sorter {
+    border: 1px solid #e4e4e4;
+    height: 37px;
+    color: #7a7d82;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: capitalize;
+    padding: 0 10px;
+    padding-right: 30px;
+    line-height: 31px;
+  }
+  .products {
+    padding: 10px 0 50px 0;
+    display: grid;
+    grid-template-columns: 20% 77%;
+    gap: 3%;
+    align-items: flex-start;
+  }
+  .mobileFilter {
+    max-height: 0;
+    transition: 0.3s ease-in-out;
+  }
+  .list-style {
+    list-style: disc;
+    padding: 4px 0;
+  }
+  /* Motherboard Page  */
+  .cards {
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 300px;
+  }
+  .card-context {
+    width: 65%;
+    position: relative;
+  }
+  .card-context:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -68px;
+    background-color: #696969;
+    width: 2px;
+  }
+  .segment {
+    min-height: 155px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .segment-context {
+    width: 59%;
+    opacity: 0;
+    margin-left: auto;
+    transition: width 0.8s, opacity 0.8s;
+  }
+
+  .segment:hover .segment-context {
+    width: 60%;
+    opacity: 1;
+  }
+
+  .segment:hover .cards {
+    transform: translate(calc(-50% - 375px), -50%);
+  }
+  .serviceImg {
+    color: #7c7b7b;
+  }
+  .serviceImg:nth-child(n + 2) {
+    margin-top: 15px;
+  }
+  .tags {
+    display: flex;
+    align-items: center;
+  }
+  .tags:before {
+    content: "-";
+    display: block;
+    margin-right: 5px;
+  }
+  .mobilesub {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 80px);
+    z-index: 501;
+    color: #222;
+    padding: 34px 0;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+  .serviceBg {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    background: url(https://storage-asset.msi.com/event/msi_main_style/global_support/images/index_head_bg.jpg)
+      center -100px no-repeat;
+    background-size: cover;
+  }
+  .alignMiddle {
+    transform: translate(-50%, -50%);
+  }
+
+  /* Handhelds */
+
+  .kv-btn {
+    position: relative;
+    z-index: 100;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px auto;
+    line-height: 35px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.35s;
+    overflow: hidden;
+  }
+  .kv-btn::before,
+  .kv-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to top right,
+      #eb0078,
+      #be1cff,
+      #0a65cc,
+      #20cdff
+    );
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  .featurable-flex-item {
+    color: #3544a4;
+    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    border-image: linear-gradient(
+        to top left,
+        #eb0078,
+        #be1cff,
+        #0a65cc,
+        #20cdff
+      )
+      5;
+
+    mask: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(black),
+      to(black)
+    );
+    mask: linear-gradient(black, black);
+  }
+  .videoBlock {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    mask: url(https://storage-asset.msi.com/global/picture/image/feature/Handhelds/Claw-A1M/video-font.png)
+      center no-repeat;
+    mask-size: 100% auto;
+  }
+  .videoBlock::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -10%;
+    left: 0%;
+    z-index: 2;
+    background: url("https://storage-asset.msi.com/global/picture/image/feature/Handhelds/Claw-A1M/video-font-bg.jpg")
+      top center no-repeat;
+    background-size: cover;
+    animation: videoft 5s infinite linear;
+  }
+
+  .btnstyle {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 10px 20px;
+    line-height: 35px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    border-color: #000;
+    margin: 0px auto 20px;
+    text-decoration: none;
+    transition: all 0.35s;
+    overflow: hidden;
+  }
+
+  .btnstyle::before,
+  .btnstyle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: -webkit-gradient(
+      linear,
+      left bottom,
+      right top,
+      from(#eb0078),
+      color-stop(#be1cff),
+      color-stop(#0a65cc),
+      to(#20cdff)
+    );
+    background: linear-gradient(
+      to top right,
+      #eb0078,
+      #be1cff,
+      #0a65cc,
+      #20cdff
+    );
+
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  .btnstyle:hover::before {
+    height: 100%;
+  }
+
+  @keyframes videoft {
+    0%,
+    100% {
+      transform: rotate(0deg) translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: rotate(0deg) translate(50px, 30px) scale(1.8);
+    }
+  }
+
+  .ergonomicText {
+    background: linear-gradient(
+      to bottom,
+      #eb0078 30%,
+      #be1cff,
+      #0a65cc,
+      #20cdff
+    );
+    background-clip: text;
+    -webkit-text-stroke: 4px transparent;
+  }
+
+  .transformX {
+    transition: 0.8s ease-in-out;
+  }
+
+  .transformY {
+    transition: 0.7s ease-in-out;
+  }
+  .textStroke {
+    -webkit-text-stroke: 1px #fff;
+  }
+  .transY {
+    transform: translateY(-50%);
+  }
+  .centerBoxText {
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px auto 0;
+    display: inline-block;
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#20ffff),
+      color-stop(30%, #0c61cc),
+      color-stop(40%, #ba1eff),
+      color-stop(50%, #eb0078)
+    );
+    background: linear-gradient(
+      to right,
+      #20ffff,
+      #0c61cc 30%,
+      #ba1eff 40%,
+      #eb0078 50%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Screen */
+  .dotsSlick {
+    display: flex !important;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+  }
+  .dotsSlick li {
+    cursor: pointer;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#20ffff),
+        to(#eb0078)
+      )
+      border-box;
+    background: linear-gradient(to bottom, #20ffff, #eb0078) border-box;
+    -webkit-mask: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          color-stop(0, #fff)
+        )
+        padding-box,
+      -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff));
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    width: 12px;
+    height: 12px;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    margin: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .dotsSlick li.slick-active {
+    width: 30px;
+  }
+  .cpu-data {
+    width: calc(100% / 2 - 10px);
+  }
+  .cpu-data-blue {
+    background: linear-gradient(to left, #0a65cc, #00ccff);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .cpu-data-pink {
+    background: linear-gradient(to right, #eb0078, #be1cff);
+    background-clip: text;
+    color: transparent;
+  }
+  .transform50 {
+    transform: translate(-50%, -50%);
+  }
+  .clawIo {
+    counter-increment: inst;
+    padding-left: 35px;
+    z-index: 1;
+    text-align: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}
+
+/* RGB ANIMATION */
+
+.rgb-light-pd-anim {
+  animation: colorful 1.5s linear infinite;
+}
+
+@keyframes colorful {
+  0% {
+    filter: hue-rotate(0deg) brightness(120%);
+  }
+  100% {
+    filter: hue-rotate(360deg) brightness(120%);
+  }
+}
+
+@layer utilities {
+  .pd_block {
+    @apply relative bg-black min-[996px]:flex min-[996px]:items-center min-[996px]:justify-center;
+  }
+  .pd_container {
+    @apply w-full px-[25px] mx-auto min-[996px]:absolute relative;
+  }
+  .mxAuto {
+    @apply mx-auto px-[25px] relative my-0 py-0;
+  }
+  .textbox-anim {
+    @apply min-[996px]:text-left min-[996px]:mt-0 text-center py-[30px] px-[25px] transformX;
+  }
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+}
+
+@media screen and (max-width: 2000px) {
+  .serviceBg {
+    height: 500px;
+    background-position: center center;
+  }
+}
+
+@media screen and (max-width: 1573px) {
+  .products {
+    grid-template-columns: 23% 74%;
+  }
+}
+
+@media screen and (max-width: 1370px) {
+  .products {
+    grid-template-columns: 25% 72%;
+  }
+}
+
+@media screen and (max-width: 1262px) {
+  .products {
+    grid-template-columns: 28% 69%;
+  }
+}
+
+@media screen and (max-width: 1129px) {
+  .products {
+    grid-template-columns: 30% 67%;
+  }
+}
+
+@media screen and (max-width: 943px) {
+  .products {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-slider {
+    padding: 8px 12px;
+    font-size: 2.7rem;
+  }
+  .serviceBg {
+    width: 100%;
+    position: relative;
+    background: url(https://storage-asset.msi.com/event/msi_main_style/global_support/images/index_head_bg_xs.jpg)
+      90% -200px no-repeat;
+    background-size: cover;
+  }
+  .support-link:nth-of-type(2) {
+    border-left: unset;
+    border-right: unset;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+  }
+}
+
+@media (max-width: 736px) {
+  .serviceBg {
+    width: 100%;
+    position: relative;
+    background: url(https://storage-asset.msi.com/event/msi_main_style/global_support/images/index_head_bg_xs.jpg)
+      90% top no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 576px) {
+  .featurable-flex-item {
+    width: calc(100% / 2 - 10px);
+  }
+}
+@media (min-width: 996px) {
+  .featurable-flex-item {
+    width: calc(100% / 3 - 10px);
+  }
+  .dotsSlick {
+    bottom: -10%;
+  }
+  .cpu-data {
+    width: calc(100% / 4 - 10px);
+  }
+}
+
+@media (max-width: 996px) {
+  .clawIo::before {
+    content: counter(inst);
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+  }
+}

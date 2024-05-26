@@ -1,0 +1,75 @@
+/** @type {import('tailwindcss').Config} */
+
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    fontSize: {
+      titlexl: "36px",
+      titlelg: "22px",
+      titlemd: "20px",
+      titlesm: "18px",
+      titlexs: "16px",
+      textxl: "20px",
+      textlg: "18px",
+      textmd: "17px",
+      textsm: "16px",
+      textxs: "15px",
+      notelg: "16px",
+      notexl: "14px",
+      notemd: "13px",
+      notesm: "12px",
+      linkxl: "20px",
+      linklg: "18px",
+      linkmd: "17px",
+      linksm: "16px",
+      linkxs: "14px",
+    },
+
+    extend: {
+      flex: {
+        1: "1 0 0",
+        2: "0 0 25%",
+        3: "0 0 50%",
+        4: "0 0 100%",
+        5: "0 0 45%",
+        6: "0 0 22px",
+        7: "0 0 40px",
+        8: "0 0 60px",
+        9: "0 0 80px",
+        card1: "0 0 40%",
+        card2: "0 0 33.3333333333%",
+        titleGrow: "3 0 0",
+        textbox: "0 0 46%",
+      },
+      boxShadow: {
+        "inset-soft": "0px -2px 0px -1px inset #eee",
+        "product-Shadow": " 0px 4px 0px -1px #eee;",
+      },
+      transitionProperty: {
+        top: "top",
+      },
+      colors: {
+        colorBlack: "#000",
+        colorWhite: "#FFFFFF",
+        colorGray100: "#FAFAFAFA",
+        colorGray200: "#ecececec",
+        colorGray300: "#cccccc",
+        colorGray400: "#808080",
+        colorGray500: "#7c7b7b",
+        colorGray600: "#696969",
+        colorGray700: "#333333",
+        colorGray800: "#222222",
+        colorGray900: "#1a1a1a",
+        colorRed400: "#ea2023",
+        colorRed300: "#fe0000",
+      },
+      backgroundPosition: {
+        bothCenter: "center, center",
+      },
+      backgroundSize: {
+        handheldBgSize: "170%",
+      },
+    },
+  },
+  plugins: [],
+};
