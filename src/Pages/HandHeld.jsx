@@ -40,27 +40,25 @@ import {
   bottomIoList,
   ClawA1MSpecs,
 } from "../Constants";
-import { useGSAP } from "@gsap/react";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Handheld = () => {
-  useGSAP(() => {
-    gsap.to("#Claw", {
+  useEffect(() => {
+    const animation = gsap.to("#Claw", {
       y: -10,
       repeat: -1,
       yoyo: true,
       duration: 1,
       ease: "power1.inOut",
     });
-  }, []);
-
-  useGSAP(() => {
     gsap.to("#deco", {
       y: 10,
       repeat: -1,
@@ -68,9 +66,7 @@ const Handheld = () => {
       duration: 1,
       ease: "power1.inOut",
     });
-  }, []);
 
-  useGSAP(() => {
     gsap.fromTo(
       "#ErgonomicAnimate",
       {
@@ -90,9 +86,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#rightErgonomicsAnim",
       {
@@ -112,9 +105,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#ergonomics-text-anim",
       {
@@ -134,9 +124,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#txtbox",
       {
@@ -156,9 +143,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#cpu-txtbox",
       {
@@ -178,9 +162,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#banner-pd",
       {
@@ -200,9 +181,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#triggerAnim",
       {
@@ -222,9 +200,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#fadeUp",
       {
@@ -244,9 +219,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#thunderBlock",
       {
@@ -266,9 +238,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       "#ClawIoAnim",
       {
@@ -283,9 +252,6 @@ const Handheld = () => {
         scrollTrigger: " #ClawIoAnim",
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       ".clawIoItem",
       {
@@ -307,9 +273,6 @@ const Handheld = () => {
         },
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       ".right-Circle",
       {
@@ -324,9 +287,6 @@ const Handheld = () => {
         scrollTrigger: " #ClawIoAnim",
       }
     );
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       ".left-Circle",
       {
@@ -341,6 +301,10 @@ const Handheld = () => {
         scrollTrigger: " #ClawIoAnim",
       }
     );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   const settings = {
